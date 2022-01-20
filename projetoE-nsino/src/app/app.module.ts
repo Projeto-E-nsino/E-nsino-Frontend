@@ -19,24 +19,12 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 @NgModule({
   declarations: [
     AppComponent,
-
-    LoginComponent
-
-
-    HomeComponent
-
-
-    SobreComponent
-
-
+    LoginComponent,
+    HomeComponent,
+    SobreComponent,
     MenuComponent,
-    RodapeComponent
-
+    RodapeComponent,
     CadastroComponent
-
-
-
-
   ],
   imports: [
     BrowserModule,

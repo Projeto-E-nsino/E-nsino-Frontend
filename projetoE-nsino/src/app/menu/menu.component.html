@@ -3,20 +3,17 @@
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
- 
+
     <a class="navbar-brand" href="#"><i class="fa fa-etsy" aria-hidden="true"></i></a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Procure por cursos" aria-label="Pesquisar">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-    </form>
+    
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item active mr-3">
-        <a class="text-dark text-center d-flex flex-column" href="#"><i class="fa fa-home"
+        <a class="text-dark text-center d-flex flex-column" routerLink="/home"><i class="fa fa-home"
           aria-hidden="true"></i>Home<span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item active mr-1">
-        <a class="text-dark text-center d-flex flex-column" href="#"><i class="fa fa-building-o"
+        <a class="text-dark text-center d-flex flex-column" routerLink="/sobre"><i class="fa fa-building-o"
           aria-hidden="true"></i> <span>Sobre nós</span></a>
       </li>
       <li class="nav-item dropleft">
@@ -25,9 +22,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Meu perfil</a>
+          <a class="dropdown-item" routerLink="/login">Login</a>
           <a class="dropdown-item" href="#">Configurações</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Sair</a>
+          <a class="dropdown-item" routerLink="/cadastro">Cadastro</a>
         </div>
       </li>
     </ul>
