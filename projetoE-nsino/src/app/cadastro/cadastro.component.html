@@ -14,7 +14,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" />
+                                            <input [(ngModel)]='usuario.nome' type="text" id="form3Example1c" class="form-control" name="nome" />
                                             <label class="form-label" for="form3Example1c">Nome completo</label>
                                         </div>
                                     </div>
@@ -22,32 +22,50 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="email" id="form3Example3c" class="form-control" />
+                                            <input [(ngModel)]='usuario.usuario' type="email" id="form3Example3c" class="form-control" name="email" />
                                             <label class="form-label" for="form3Example3c">Email</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input [(ngModel)]='usuario.foto' name="foto" type="text" id="form3Example3c" class="form-control" />
+                                            <label class="form-label" for="form3Example3c">Foto</label>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="password" id="form3Example4c" class="form-control" />
-                                            <label class="form-label" for="form3Example4c">Senha</label>
+                                            <input (keyup)='confirmSenha($event)' type="password" name="senha" id="form3Example4c" class="form-control" />
+                                            <label class="form-label" for="form3Example4c" >Senha</label>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="">Selecione o tipo de usuário</label>
+                                        <select (change)="tipoUser($event)" name="tipo" id="" class="form-control">
+                                            <option value="">Selecione o tipo de usuário</option>
+                                            <option value="administrador">Administrador</option>
+                                            <option value="normal">Padrão</option>
+                                        </select>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="password" id="form3Example4cd" class="form-control" />
+                                            <input [(ngModel)]='usuario.senha' name="confirmar" type="password" id="form3Example4cd" class="form-control" />
                                             <label class="form-label" for="form3Example4cd">Repita sua senha</label>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                                        <button type="submit" class="btn btn-primary btn-lg" (click)='cadastrar()'>Cadastrar</button>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                      <button routerLink="/home" type="submit" class="btn btn-danger btn-lg">Cancelar</button>
-                                  </div>
+                                        <button routerLink="/login" type="submit" class="btn btn-danger btn-lg">Cancelar</button>
+                                    </div>
 
                                 </form>
 

@@ -1,10 +1,10 @@
-#fundo {
-    /*background-image: url("");
+/* #fundo {
+    background-image: url("");
     height: 100vh;
     background-position:center;
     display: flex;
-    background-size: cover;*/
-}
+    background-size: cover;
+} */
 #card {
     /*background-color: rgb(158, 24, 0);*/
     box-shadow: 0 0px 25px 10px rgba(0, 0, 0, 0.397);
@@ -16,12 +16,17 @@
     color: white;
 }
 
-#fonteFora {
+#fonteFora1 {
     font-weight: 500;
     color: white;
 }
 
-#fonteDentro {
+#fonteFora2 {
+    font-weight: 500;
+    color: white;
+}
+
+.fonteDentro {
     font-weight: 200;
     background-color: transparent;
     color: white;
