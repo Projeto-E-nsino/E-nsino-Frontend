@@ -14,6 +14,8 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -30,9 +32,14 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
