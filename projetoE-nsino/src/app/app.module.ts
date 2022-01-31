@@ -17,6 +17,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
 import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 
 
 
@@ -31,6 +32,7 @@ import { TemaComponent } from './tema/tema.component';
     RodapeComponent,
     CadastroComponent,
     TemaComponent,
+    TemaEditComponent,
   ],
   imports: [
     BrowserModule,
