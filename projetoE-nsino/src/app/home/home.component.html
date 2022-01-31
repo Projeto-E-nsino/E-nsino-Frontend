@@ -15,6 +15,8 @@
 
       <div class="jumbotron jumbotron-fluid text-left">
         <div class="container">
+          <button type="button" class="btn btn-outline-secondary mr-3 mt-3 mb-3" href="#postagens"> Ver Postagens </button>
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target='#novaPostagem'> Nova Postagem</button>
           <h2 class="">boas vindas a rede social e-nsino.</h2>
           <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas excepturi nemo, totam molestias, praesentium incidunt quaerat, explicabo id cum perferendis animi? Commodi beatae optio ipsa, cumque illo corrupti. Debitis, necessitatibus?</p>
         </div>
@@ -178,7 +180,7 @@
       </div>
       <!-- !/cards -->
 
-      <div class="row p-5 d-flex justify-content-center">
+      <div class="row p-5 d-flex justify-content-center" id="postagens">
         <div class="col-md-8">
           <hr>
         </div>
@@ -203,3 +205,46 @@
   </div>
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado" data-toggle="modal" data-target='#novaPostagem'> Nova postagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="titulo">Titulo</label>
+          <input  type="text" class="form-control" id="titulo" placeholder="digite o titulo da sua postagem">
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema ou  <a routerLink="/tema" data-dismiss="modal">: cadastre um novo</a></label>
+
+          <select name="tema" id="tema" class="form-control" >
+            <option ></option>
+          </select>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

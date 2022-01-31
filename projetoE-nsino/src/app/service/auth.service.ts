@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -13,6 +13,16 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) {}
+  
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
+  refreshToken() {
+    this.token =  {
+    headers: new HttpHeaders().set('Authorization', environment.token),
+    };}
+
+
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
     return this.http.post<UserLogin>('https://redesocialensino.herokuapp.com/usuarios/logar', userLogin)
@@ -21,11 +31,12 @@ export class AuthService {
   cadastrar(user: User): Observable<User>{
     return this.http.post<User>('https://redesocialensino.herokuapp.com/usuarios/cadastrar', user)
   }
-/*logado(){
-let ok: boolean = false
-if(environment.token != ''){
-ok = true
+
+  logado(){
+  let ok: boolean = false
+  if(environment.token != ''){
+  ok = true
+  }
+  return ok
 }
-return ok
-}*/
 }
