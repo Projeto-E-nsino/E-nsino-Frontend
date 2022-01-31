@@ -23,7 +23,7 @@ listaTemas: Tema[]
   alert('Sua sessão expirou ! Faça login novamente')
   this.router.navigate(['/login'])
   }
-this.auth.refreshToken()
+   this.temaService.refreshToken()
   }
 
 findAllTemas(){
