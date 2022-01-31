@@ -15,6 +15,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
 import { TemaComponent } from './tema/tema.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -33,6 +34,7 @@ import { LoginComponent } from './login/login.component';
     RodapeComponent,
     CadastroComponent,
     TemaComponent,
+    TemaDeleteComponent,
     TemaEditComponent,
   ],
   imports: [
