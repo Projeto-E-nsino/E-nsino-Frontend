@@ -39,4 +39,8 @@ export class AuthService {
   }
   return ok
 }
+getByIdUser(id: number): Observable<User>{
+  return this.http.get<User>(`https://redesocialensino.herokuapp.com/usuarios/${id}`, this.token)
+
+}
 }
