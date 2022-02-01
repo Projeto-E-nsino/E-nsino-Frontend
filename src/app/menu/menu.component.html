@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" routerLink="/home"><i class="fa fa-etsy" aria-hidden="true"></i></a>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
+      <li class="nav-item active mr-3">
+        <a class="text-dark text-center d-flex flex-column" routerLink="/home"><i class="fa fa-home"
+          aria-hidden="true"></i>Home<span class="sr-only">(Página atual)</span></a>
+      </li>
+      <li class="nav-item active mr-1">
+        <a class="text-dark text-center d-flex flex-column" routerLink="/sobre"><i class="fa fa-building-o"
+          aria-hidden="true"></i> <span>Sobre nós</span></a>
+      </li>
+      <li class="nav-item dropleft">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{{foto}}" class="img-fluid rounded-circle" height="50px" alt="" width="50px">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Meu perfil</a>
+          <a class="dropdown-item" href="#">Configurações</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/login">Sair</a>
+        </div>
+      </li>
+    </ul>
+    </div>
+    </nav>

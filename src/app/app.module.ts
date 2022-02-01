@@ -13,6 +13,8 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { TemaComponent } from './tema/tema.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
@@ -20,12 +22,7 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-
-import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
-import { UserEditComponent } from './edit/user-edit/user-edit.component';
-
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
-
 
 
 
@@ -42,15 +39,11 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
     TemaComponent,
     TemaDeleteComponent,
     TemaEditComponent,
-
-    PostagemDeleteComponent,
-    UserEditComponent,
-
     PostagemEditComponent,
-
   ],
   imports: [
     BrowserModule,
+<<<<<<< HEAD:projetoE-nsino/src/app/app.module.ts
     AppRoutingModule,
     HttpClientModule,
     FormsModule
@@ -59,6 +52,17 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
+=======
+    AppRoutingModule, 
+    HttpClientModule,
+    FormsModule
+  ],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+  ],
+>>>>>>> 6575f9ced152ac20734408d0a4199f4b57f537e1:src/app/app.module.ts
   bootstrap: [AppComponent]
 })
 export class AppModule { }
