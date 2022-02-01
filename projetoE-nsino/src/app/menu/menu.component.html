@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="#"><i class="fa fa-etsy" aria-hidden="true"></i></a>
+    <a class="navbar-brand" routerLink="/home"><i class="fa fa-etsy" aria-hidden="true"></i></a>
 
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav ml-auto d-flex align-items-center">
@@ -23,7 +23,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Meu perfil</a>
           <a class="dropdown-item" routerLink="/login">Login</a>
-          <a class="dropdown-item" href="#">Configurações</a>
+          <a class="dropdown-item" [routerLink]="['/user-edit', id]">Configurações</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/cadastro">Cadastro</a>
         </div>

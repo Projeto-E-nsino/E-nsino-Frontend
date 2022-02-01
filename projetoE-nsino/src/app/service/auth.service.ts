@@ -31,6 +31,9 @@ export class AuthService {
   cadastrar(user: User): Observable<User>{
     return this.http.post<User>('https://redesocialensino.herokuapp.com/usuarios/cadastrar', user)
   }
+  atualizar(user: User): Observable<User>{
+    return this.http.put<User>('https://redesocialensino.herokuapp.com/usuarios/atualizar', user, this.token)
+  }
 
   logado(){
   let ok: boolean = false
@@ -38,5 +41,9 @@ export class AuthService {
   ok = true
   }
   return ok
+}
+getByIdUser(id: number): Observable<User>{
+  return this.http.get<User>(`https://redesocialensino.herokuapp.com/usuarios/${id}`, this.token)
+
 }
 }

@@ -1,0 +1,80 @@
+<div class="container mb-5 mt-5">
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center text-secondary">Atualizar meu usuario</h1>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+
+
+        <form class="mx-1 mx-md-4">
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    <input [(ngModel)]='usuario.nome' type="text" id="form3Example1c" class="form-control" name="nome" />
+                    <label class="form-label" for="form3Example1c">Nome completo</label>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    <input [(ngModel)]='usuario.usuario' type="email" id="form3Example3c" class="form-control" name="email" />
+                    <label class="form-label" for="form3Example3c">Email</label>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    <input [(ngModel)]='usuario.foto' name="foto" type="text" id="form3Example3c" class="form-control" />
+                    <label class="form-label" for="form3Example3c">Foto</label>
+                </div>
+            </div>
+            
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    <input (keyup)='confirmSenha($event)' type="password" name="senha" id="form3Example4c" class="form-control" />
+                    <label class="form-label" for="form3Example4c" >Senha</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Selecione o tipo de usuário</label>
+                <select (change)="tipoUser($event)" name="tipo" id="" class="form-control">
+                    <option value="">Selecione o tipo de usuário</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="normal">Padrão</option>
+                </select>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    <input [(ngModel)]='usuario.senha' name="confirmar" type="password" id="form3Example4cd" class="form-control" />
+                    <label class="form-label" for="form3Example4cd">Repita sua senha</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" class="btn btn-primary btn-lg" (click)='atualizar()'>Atualizar</button>
+            </div>
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button routerLink="/inicio" type="submit" class="btn btn-danger btn-lg">Cancelar</button>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            class="img-fluid" alt="Sample image">
+
+    </div>
+</div>
+</div>

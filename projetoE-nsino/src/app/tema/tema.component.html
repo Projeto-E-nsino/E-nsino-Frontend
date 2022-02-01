@@ -2,7 +2,7 @@
   <div class="row d-flex align-items-center" style="background-color: #6bc1cce7">
     <div class="col-md-12 text-light">
 
-      <a routerLink='/inicio' class='text-left text-light'>
+      <a routerLink='/home' class='text-left text-light'>
         <i class="fa fa-angle-double-left fs-5" aria-hidden="true">Inicio</i>
       </a>
 
@@ -32,7 +32,53 @@
         </div>
       </div>
 
+      
+
 
     </div>
   </div>
+</div>
+
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h2 class="text-center">Todos os temas: </h2>
+    </div>
+  </div>
+
+  <div class="row mt-4 mb-5 d-flex justify-content-center">
+    <div class="col-md-6">
+
+      <table class="table table-hover">
+
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col" class="text-right">Modificações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of listaTemas">
+            <th> {{item.id}} </th>
+            <td> {{item.descricao}} </td>
+            <td class="d-flex justify-content-end">
+              <button class="btn btn-info mr-3" [routerLink]="['/tema-edit', item.id]">
+                Editar
+              </button>
+
+              <button class="btn btn-danger" [routerLink]="['/tema-delete', item.id]">
+                Apagar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
 </div>
