@@ -20,7 +20,12 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+
+import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { UserEditComponent } from './edit/user-edit/user-edit.component';
+
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
+
 
 
 
@@ -37,7 +42,12 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
     TemaComponent,
     TemaDeleteComponent,
     TemaEditComponent,
+
+    PostagemDeleteComponent,
+    UserEditComponent,
+
     PostagemEditComponent,
+
   ],
   imports: [
     BrowserModule,
