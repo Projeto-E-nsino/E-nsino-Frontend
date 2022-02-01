@@ -18,9 +18,6 @@ export class HomeComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
-  nome = environment.nome
-  foto = environment.foto
-
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
@@ -36,9 +33,12 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+
+    window.scroll(0,0)
+    
     if(environment.token == ""){
       this.router.navigate(["/login"])
-     }
+    }
 
     this.authService.refreshToken();
     this.getAllTemas();
@@ -76,12 +76,12 @@ export class HomeComponent implements OnInit {
 
     this.usuario.id = this.idUsuario
     this.postagem.usuario = this.usuario
-
+    
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem ()
-      this.getAllPostagens
+      this.postagem = new Postagem()
+      this.getAllPostagens()
     })
 
   }

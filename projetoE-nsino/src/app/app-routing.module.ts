@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'cadastro', component: CadastroComponent},
   {path:'sobre', component: SobreComponent},
   {path:'tema', component: TemaComponent},
-  {path: 'tema-delete/:id', component: TemaDeleteComponent},
+  {path:'tema-delete/:id', component: TemaDeleteComponent},
   {path:'tema-edit/:id', component: TemaEditComponent}
 ];
 
