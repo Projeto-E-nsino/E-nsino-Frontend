@@ -65,7 +65,8 @@
           <div class="d-flex justify-content-center">
             <div class="col-md-9 d-flex flex-column align-items-center">
 
-              <div class="card mb-3 w-100" *ngFor="let item of listaPostagens">
+              <div class="card mb-3 w-100"
+               *ngFor="let item of listaPostagens | orderBy : key : reverse">
                 <div class="card-body">
 
                   <h5 class="card-title m-0 mb-2 text-center">{{item.titulo}}</h5>
@@ -108,7 +109,7 @@
             <div class="d-flex justify-content-center">
               <div class="col-md-9 d-flex flex-column align-items-center">
 
-                <div class="card mb-3 w-100" *ngFor="let item of usuario.postagem">
+                <div class="card mb-3 w-100" *ngFor="let item of usuario.postagem | orderBy : key : reverse">
                   <div class="card-body">
                     
                     <h5 class="card-title m-0 mb-2 text-center">{{item.titulo}}</h5>
@@ -150,7 +151,7 @@
 
             <div class="d-flex justify-content-center">
 
-              <div class="col-md-9 d-flex flex-column align-items-center" *ngFor="let tema of listaTemas">
+              <div class="col-md-9 d-flex flex-column align-items-center" *ngFor="let tema of listaTemas | orderBy : key : reverse">
 
                 <div class="card  mb-3 w-100" *ngFor="let item of tema.postagem">
 
@@ -218,7 +219,7 @@
           <label for="texto">Escolha um tema ou  <a routerLink="/tema"  data-dismiss="modal">: cadastre um novo</a></label>
 
           <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
-            <option *ngFor="let item of listaTemas" value="{{item.id}}">
+            <option *ngFor="let item of listaTemas | orderBy : key : reverse" value="{{item.id}}">
               {{item.descricao}}
             </option>
           </select>
