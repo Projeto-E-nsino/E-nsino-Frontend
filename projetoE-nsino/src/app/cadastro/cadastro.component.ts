@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    this.usuario.tipo = this.tipoUsuario
+    this.usuario.tipo = 'normal'
 
     if(this.usuario.senha != this.confirmarSenha) {
       alert('As senhas não conferem!')

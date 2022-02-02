@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg text-white sticky-top navbar-vermelho text-black">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" routerLink="/home"><i class="fa fa-etsy" aria-hidden="true"></i></a>
+    <a class="navbar-brand text-decoration-none text-white playFair fs-2rem bold ml-3" routerLink="/home">∑</a>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <div class="collapse navbar-collapse text-white" id="conteudoNavbarSuportado">
     <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item active mr-3">
         <a class="text-dark text-center d-flex flex-column" routerLink="/home"><i class="fa fa-home"
@@ -22,10 +22,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Meu perfil</a>
-          <a class="dropdown-item" routerLink="/login">Login</a>
           <a class="dropdown-item" [routerLink]="['/user-edit', id]">Configurações</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/cadastro">Cadastro</a>
+          <a class="dropdown-item" routerLink="/login">Sair </a>
         </div>
       </li>
     </ul>
