@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router'
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,22 +11,26 @@ import { Router } from '@angular/router'
 })
 export class CadastroComponent implements OnInit {
 
-    usuario: User = new User
-    confirmarSenha: string
-    tipoUsuario: string
+  usuario: User = new User
+  confirmarSenha: string
+  tipoUsuario: string
 
-  constructor( private auth: AuthService, private router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private alertas: AlertasService
+  ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
   }
 
-  confirmSenha(event:any) {
+  confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
     console.log(this.confirmarSenha)
   }
 
-  tipoUser(event:any) {
+  tipoUser(event: any) {
     this.tipoUsuario = event.target.value
     console.log(this.tipoUsuario)
   }
@@ -33,13 +38,13 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
     this.usuario.tipo = 'normal'
 
-    if(this.usuario.senha != this.confirmarSenha) {
-      alert('As senhas não conferem!')
+    if (this.usuario.senha != this.confirmarSenha) {
+      this.alertas.showAlertInfo('As senhas não conferem!')
     }
     else {
-      this.auth.cadastrar(this.usuario).subscribe((resp: User)=>{
+      this.auth.cadastrar(this.usuario).subscribe((resp: User) => {
         this.usuario = resp
-        alert('Usuário cadastrado com sucesso!')
+        this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
         this.router.navigate(['/login'])
       })
     }
