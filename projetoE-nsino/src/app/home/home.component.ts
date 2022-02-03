@@ -18,10 +18,12 @@ export class HomeComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloPost: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  areaTema: string
 
   usuario: User = new User()
   idUsuario = environment.id
@@ -95,5 +97,23 @@ export class HomeComponent implements OnInit {
 
   }
 
-
+  findByTituloPostagem(){
+    if(this.tituloPost == ''){
+      this.getAllPostagens()
+    } else{
+    this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>
+    {
+      this.listaPostagens = resp
+    })
+  }
+}
+findByAreaTema(){
+  if(this.areaTema == ''){
+    this.getAllTemas()
+  } else{
+    this.temaService.getByAreaTema(this.areaTema).subscribe((resp: Tema[])=>{
+      this.listaTemas = resp
+    })
+}
+}
 }

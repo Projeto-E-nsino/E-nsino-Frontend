@@ -60,7 +60,14 @@
         <!-- ?TODAS AS POSTAGENS -->
         <div class="tab-content mt-5" id="nav-tabContent">
           <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-            
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="titulo"
+                          placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)="findByTituloPostagem()">
+                  </div>
+              </div>
+          </div>
             <!-- ?CARD POSTAGENS -->
           <div class="d-flex justify-content-center">
             <div class="col-md-9 d-flex flex-column align-items-center">
@@ -148,12 +155,19 @@
       
             <!-- ?LISTA DE POSTAGEM POR TEMA -->
           <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
-
-            <div class="d-flex justify-content-center">
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="titulo"
+                          placeholder="Digite um tema para pesquisar" [(ngModel)]='areaTema' (keyup)="findByAreaTema()">
+                  </div>
+              </div>
+          </div>
+            <div class="row d-flex justify-content-center">
 
               <div class="col-md-9 d-flex flex-column align-items-center" *ngFor="let tema of listaTemas | orderBy : key : reverse">
 
-                <div class="card  mb-3 w-100" *ngFor="let item of tema.postagem">
+                <div class="card  mb-3 w-100" *ngFor="let item of tema.postagem | orderBy : key : reverse">
 
                   <div class="card-body">
 
@@ -219,7 +233,7 @@
           <label for="texto">Escolha um tema ou  <a routerLink="/tema"  data-dismiss="modal">: cadastre um novo</a></label>
 
           <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
-            <option *ngFor="let item of listaTemas | orderBy : key : reverse" value="{{item.id}}">
+            <option *ngFor="let item of listaTemas" value="{{item.id}}">
               {{item.descricao}}
             </option>
           </select>
