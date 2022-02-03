@@ -7,6 +7,7 @@ import { User } from 'src/app/model/User';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-home',
@@ -17,19 +18,25 @@ export class HomeComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloPost: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  areaTema: string
 
   usuario: User = new User()
   idUsuario = environment.id
+
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -83,12 +90,30 @@ export class HomeComponent implements OnInit {
     
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
 
   }
 
-
+  findByTituloPostagem(){
+    if(this.tituloPost == ''){
+      this.getAllPostagens()
+    } else{
+    this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>
+    {
+      this.listaPostagens = resp
+    })
+  }
+}
+findByAreaTema(){
+  if(this.areaTema == ''){
+    this.getAllTemas()
+  } else{
+    this.temaService.getByAreaTema(this.areaTema).subscribe((resp: Tema[])=>{
+      this.listaTemas = resp
+    })
+}
+}
 }
