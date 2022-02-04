@@ -1,20 +1,29 @@
-<div id="fundo">
+<div id="fundo" class="">
     <div class="container-fluid">
         <div class="col-md-12 d-flex justify-content-center align-items-center vh-100">
-            <div id="card" class="card d-flex justify-content-center" style="width: 20rem; height: 25rem; border-radius: 10px;">
+            <div class="col-md-6">
+                <div class="col-md-12 mr-0">
+                    <div class="row d-flex justify-content-center">
+                        <img class="w-50 mt-2" src="https://imgur.com/uiC63Ei.png" alt="">
+                    </div>
+                    <h5 class="mt-4 mb-0 ml-1 text-center">EDUCAÇÃO E OPORTUNIDADE <br> A UM <span style="color:  #ff9865;">CLICK</span> DE DISTÂNCIA</h5>
+                    <img class="ml-5 w-75" src="https://i.imgur.com/qnvVuEL.png" alt="">
+                </div>
+            </div>
+            <div id="cardLogin" class="fonteMontserrat mx-0 card d-flex justify-content-center" style="width: 25rem; height: 30rem; border-radius: 10px;">
                 <form class="mt-5 mx-4 d-flex justify-content-center flex-column align-items-center" >
-                    <h2 id="titulo" class="">Entrar:</h2>
+                    <h2 id="titulo" class="bold">Entrar:</h2>
                     <div class="w-100">
                         <label id="fonteFora1" for="">E-mail:</label>
-                        <input [(ngModel)]='userLogin.usuario' name="usuario" id="usuario" type="text" class="form-control" placeholder="E-mail">
+                        <input [(ngModel)]='userLogin.usuario' name="usuario" id="usuario" type="text" class="form-control fonteD" placeholder="E-mail">
                     </div>
                     <div class="w-100">
                         <label id="fonteFora2" for="" class="pt-2">Senha:</label>
-                        <input [(ngModel)]='userLogin.senha' name="senha" id="senha" type="password" class="form-control" placeholder="Senha">
+                        <input [(ngModel)]='userLogin.senha' name="senha" id="senha" type="password" class="form-control fonteD" placeholder="Senha">
                     </div>
-                    <hr class="w-100">
+                    <hr id="hr" class="w-100">
                     <div class="mt-1 d-flex justify-content-center w-100">
-                        <button (click)='entrar()' id="botaoEntrar" class="btn border">Entrar</button>
+                        <button (click)='entrar()' id="botaoEntrar" class="btn">Entrar</button>
                     </div>
                 </form>
                 <div>
