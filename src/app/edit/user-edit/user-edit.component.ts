@@ -20,7 +20,7 @@ export class UserEditComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private alertas: AlertasService
+    // private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -42,12 +42,12 @@ export class UserEditComponent implements OnInit {
     this.usuario.tipo = this.tipoUsuario
 
     if (this.usuario.senha != this.confirmarSenha) {
-      this.alertas.showAlertDanger("As senhas estão incorretas.")
+      // this.alertas.showAlertDanger("As senhas estão incorretas.")
     } else {
       this.authService.atualizar(this.usuario).subscribe((resp: User) => {
         this.usuario = resp
         this.router.navigate(['/login'])
-        this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')
+        // this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')
         environment.token = ''
         environment.nome = ''
         environment.foto = ''

@@ -1,14 +1,35 @@
-/* #fundo {
-    background-image: url("");
-    height: 100vh;
-    background-position:center;
-    display: flex;
-    background-size: cover;
-} */
-#card {
-    /*background-color: rgb(158, 24, 0);*/
-    box-shadow: 0 0px 25px 10px rgba(0, 0, 0, 0.397);
-    background: linear-gradient(to top, #870000, #190a05);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.fonteMontserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.fonteD {
+    color: #c96d3f;
+    font-weight:600;
+}
+
+#hr{
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid rgb(255, 255, 255);
+    margin: 1em 0; padding: 0;
+}
+
+#cardLogin{
+    background-color:#ff9865;
+    box-shadow: 0 0px 15px 3px rgba(0, 0, 0, 0.397);
+
+    background: rgba(255, 145, 81, 0.856);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(18.4px);
+-webkit-backdrop-filter: blur(18.4px);
+border: 1px solid rgba(255, 255, 255, 0.44);
+    /* opacity:0.6; */
 }
 
 #titulo {
@@ -37,20 +58,29 @@
     font-weight: 500;
     width: 50%;
     transition: .4s;
+    font-weight: bold;
+    border: #fd945f;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    background-color: white;
     color: white;
-    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.397);
+    background-color: #ffa375;
+    /* box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.397); */
 }
 
 .btn:hover {
-    width: 60%;
+    font-weight: bold;
+    /* width: 60%; */
+    color: #ff9865;
+    background-color: white;
 }
 
 #cadastre {
-    color: rgba(29, 0, 156, 0.774);
+    color: rgba(150, 0, 0, 0.774);
     font-weight: 600;
 }
 
 #cadastre:hover {
-    font-weight: 700;
-    text-decoration: none;
+    text-decoration: underline;
 }
