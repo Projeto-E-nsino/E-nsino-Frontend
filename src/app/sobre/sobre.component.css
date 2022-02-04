@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:wght@500&family=Ubuntu:wght@300&display=swap');
+
+.ubuntu{
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .fa{
   font-size: 30pt;
   margin: 10px;
@@ -10,5 +16,35 @@
   color: #0072b1;
 }
 .fa-github-square:hover{
-color: black;
+  color: black;
 }
+
+.fundoSobre{
+  background-color:#ff9865;
+  /* opacity:0.6; */
+}
+
+.fundoBranco{
+  background-color: whitesmoke;
+}
+
+.fundoContainer{
+  background-color:#ff9865;
+  /* opacity:0.6; */
+}
+
+.flexColumn{
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fs{
+  font-size: 1rem;
+}
+
+.bold{
+  font-weight: bold;
+}
+

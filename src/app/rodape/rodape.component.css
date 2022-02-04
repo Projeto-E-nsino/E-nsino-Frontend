@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+footer{
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-vermelho{
+  background-color:#ff9865;
+  /* opacity:0.6; */
+}
+
+.fs2{
+  font-size: 2rem;
+}
+
+
+.fa{
+  color: rgb(235, 235, 235);
+}
+
+.fa-github-square:hover{
+  color: black;
+}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:wght@500&display=swap');
+
+.navbar-vermelho{
+  background-color:#ff9865;
+  /* opacity:0.6; */
+}
+
+.text-black{
+color: black;
+}
+
+.playFair{
+  font-family: 'Playfair Display', serif;
+}
+
+.fs-2rem{
+  font-size: 2rem;
+}
+
+.fs1{
+  font-size: 1.5rem;
+}
+
+.bold{
+  font-weight: bold;
+}
+

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/* 
+*{
+  font-family: 'Montserrat', sans-serif;
+} */
+
+.fundoCadastro{
+  background-color:#ff9865;
+  /* opacity:0.6; */
+}
+
+.fonteMontserrat{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bold{
+  font-weight: bold;
+}

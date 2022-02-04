@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-cadastro',
@@ -10,13 +10,13 @@ import { AuthService } from '../service/auth.service';
 })
 export class CadastroComponent implements OnInit {
 
-    usuario: User = new User()
+    usuario: User = new User
     confirmarSenha: string
     tipoUsuario: string
 
   constructor( private auth: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     window.scroll(0,0)
   }
 
@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    this.usuario.tipo = this.tipoUsuario
+    this.usuario.tipo = 'normal'
 
     if(this.usuario.senha != this.confirmarSenha) {
       alert('As senhas não conferem!')

@@ -41,6 +41,10 @@ export class HomeComponent implements OnInit {
     }
 
     this.authService.refreshToken();
+
+    this.temaService.refreshToken();
+    this.postagemService.refreshToken();
+
     this.getAllTemas();
     this.getAllPostagens();
   }
