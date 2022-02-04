@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row d-flex align-items-center" style="background-color: #6bc1cce7">
+  <div class="row d-flex align-items-center" style="background-color: #ff9865">
     <div class="col-md-12 text-light">
 
       <a routerLink='/home' class='text-left text-light'>
@@ -63,7 +63,7 @@
         <tbody>
           <tr *ngFor="let item of listaTemas">
             <th> {{item.id}} </th>
-            <td> {{item.descricao}} </td>
+            <td> {{item.descricao}}, {{item.nivel}} e {{item.area}} </td>
             <td class="d-flex justify-content-end">
               <button class="btn btn-info mr-3" [routerLink]="['/tema-edit', item.id]">
                 Editar
