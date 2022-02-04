@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .navbar-vermelho{
   background-color:#ff9865;
@@ -11,6 +12,10 @@ color: black;
 
 .playFair{
   font-family: 'Playfair Display', serif;
+}
+
+.Montesserat{
+  font-family: 'Montserrat', sans-serif;
 }
 
 .fs-2rem{
