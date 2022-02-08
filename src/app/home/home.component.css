@@ -5,3 +5,22 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.btn-custom {
+	padding: 7px 250px 10px 10px;
+	border-radius: 50px;
+    color: #ff5500;
+    border-color: #ff5500;
+}
+.btn-custom:hover {
+    background: rgb(255, 191, 139);
+    color:rgb(255, 255, 255);
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.fonteD {
+    color: #c96d3f;
+    font-weight:600;
+}

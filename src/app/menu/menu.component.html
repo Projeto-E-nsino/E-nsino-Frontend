@@ -22,6 +22,7 @@
           <img src="{{foto}}" class="img-fluid rounded-circle" height="50px" alt="" width="50px">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/perfil">Meu perfil</a>
           <a class="dropdown-item" [routerLink]="['/user-edit', id]">Configurações</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="sair()">Sair </a>

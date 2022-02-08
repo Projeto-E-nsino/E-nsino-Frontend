@@ -1,0 +1,97 @@
+<div class="container-fluid m-0 p-0">
+
+    <div class="row">
+      <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#ff5500" fill-opacity="0.6"
+          d="M0,128L48,133.3C96,139,192,149,288,138.7C384,128,480,96,576,112C672,128,768,192,864,186.7C960,181,1056,107,1152,69.3C1248,32,1344,32,1392,32L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+        </path>
+      </svg>
+    </div>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <img src="https://imgur.com/0Z9KBKC.jpg" class="img-fluid inline-block rounded-circle"
+                            height="200px" alt="" width="200px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 text-black">
+                    <h1 class="">Yasmim Marques</h1>
+                    
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="container mb-5 mt-5" id="postagens">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+                            <a (click)='findByIdUsuario()'
+                                class="nav-item nav-link text-secondary font-weight-bold"
+                                id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+                                aria-controls="nav-minhasPostagens" aria-selected="false">ver minhas postagens</a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-pane fade" id="minhasPostagens" role="tabpanel"
+                        aria-labelledby="nav-minhasPostagens-tab">
+
+                        <div class="d-flex justify-content-center mb-5 mt-5">
+                            <div class="col-md-9 d-flex flex-column align-items-center">
+
+                                <div class="card mb-3 w-100"
+                                    *ngFor="let item of usuario.postagem | orderBy : key : reverse">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title m-0 mb-2 text-center">{{item.titulo}}</h5>
+
+                                        <hr class="mt-2 mb-2 w-75">
+
+                                        <div class="d-flex justify-content-center">
+                                            <small class="text-muted mb-1 mr-3">Tema: {{item.tema.descricao}} </small>
+                                            <small class="text-muted mb-1 mr-3">Nível: {{item.tema.nivel}}</small>
+                                            <small class="text-muted">Área: {{item.tema.area}}</small>
+                                        </div>
+
+                                        <p class="card-text mt-3">{{item.texto}}</p>
+
+
+                                        <div class="d-flex justify-content-between">
+                                            <p class="card-text"><small class="text-muted">
+                                                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                                                </small></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center">
+                                            <a [routerLink]="['/postagem-edit', item.id]"
+                                                class="text-info mr-3">editar</a>
+                                            <a [routerLink]="['/postagem-delete', item.id]"
+                                                class="text-danger">apagar</a>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <div class="row p-0 w-100 m-0">
+        <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#ff5500" fill-opacity="0.6"
+            d="M0,64L48,101.3C96,139,192,213,288,218.7C384,224,480,160,576,149.3C672,139,768,181,864,186.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+          </path>
+        </svg>
+      </div>
+    
+    </div>

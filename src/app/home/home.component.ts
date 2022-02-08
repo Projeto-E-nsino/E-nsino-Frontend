@@ -7,6 +7,7 @@ import { User } from 'src/app/model/User';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-home',
@@ -22,15 +23,22 @@ export class HomeComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  areaTema: string
 
   usuario: User = new User()
   idUsuario = environment.id
+
+  foto = environment.foto
+
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService,
   ) { }
 
   ngOnInit(){
@@ -39,7 +47,7 @@ export class HomeComponent implements OnInit {
 
     if(environment.token == ""){
       this.router.navigate(["/login"])
-      alert('Sua sessão expirou! Por favor, faça login novamente')
+      this.alertas.showAlertInfo('Sua sessão expirou! Por favor, faça login novamente')
     }
     this.authService.refreshToken();
     this.temaService.refreshToken();
@@ -73,6 +81,15 @@ export class HomeComponent implements OnInit {
     })
 
   }
+  findByAreaTema(){
+    if(this.areaTema == ''){
+      this.getAllTemas()
+    } else{
+      this.temaService.getByAreaTema(this.areaTema).subscribe((resp: Tema[])=>{
+        this.listaTemas = resp
+      })
+  }
+  }
 
   publicar(){
     this.tema.id = this.idTema
@@ -83,7 +100,7 @@ export class HomeComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
@@ -115,6 +132,7 @@ export class HomeComponent implements OnInit {
       vtexto.style.color = "black"
     }
   }
+
 
 
 }
