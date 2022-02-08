@@ -8,6 +8,7 @@ import { Tema } from '../model/Tema';
   providedIn: 'root'
 })
 export class TemaService {
+  
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,10 @@ export class TemaService {
 
   getAllTema(): Observable<Tema[]> {
     return this.http.get<Tema[]>('https://redesocialensino.herokuapp.com/tema', this.token)
+  }
+
+  getByAreaTema(area: string): Observable<Tema[]>{
+    return this.http.get<Tema[]>(`'https://redesocialensino.herokuapp.com/tema/area/${area}`, this.token)
   }
 
   postTema(tema: Tema): Observable<Tema> {
