@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloOK: boolean
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
@@ -35,13 +36,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(){
 
     window.scroll(0,0)
-    
+
     if(environment.token == ""){
       this.router.navigate(["/login"])
+      alert('Sua sessão expirou! Por favor, faça login novamente')
     }
-
     this.authService.refreshToken();
-
     this.temaService.refreshToken();
     this.postagemService.refreshToken();
 
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
 
     this.usuario.id = this.idUsuario
     this.postagem.usuario = this.usuario
-    
+
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
@@ -88,6 +88,32 @@ export class HomeComponent implements OnInit {
       this.getAllPostagens()
     })
 
+  }
+
+  validaTitulo(){
+    if(this.postagem.titulo.length < 5 || this.postagem.titulo.length > 45 ){
+      let vtitulo = (<HTMLDivElement>document.getElementById('vtitulo'))
+      vtitulo.innerHTML = 'Título: mín 5, máx 45 caracteres'
+      vtitulo.style.color = "red"
+
+    } else {
+      let vtitulo = (<HTMLDivElement>document.getElementById('vtitulo'))
+      vtitulo.innerHTML = ''
+      vtitulo.style.backgroundColor = "transparent"
+
+    }
+  }
+
+  validaTexto(){
+    if(this.postagem.texto.length < 10 || this.postagem.texto.length > 1000){
+      let vtexto = (<HTMLDivElement>document.getElementById('vtexto'))
+      vtexto.innerHTML = 'Texto: mín 10, máx 1000 caracteres'
+      vtexto.style.color = "red"
+    } else {
+      let vtexto = (<HTMLDivElement>document.getElementById('vtexto'))
+      vtexto.innerHTML = (1000 - this.postagem.texto.length).toString()
+      vtexto.style.color = "black"
+    }
   }
 
 

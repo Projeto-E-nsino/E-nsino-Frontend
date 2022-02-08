@@ -11,23 +11,23 @@
 
     <div class="row d-flex align-items-center">
       <div class="col-md-6">
-  
+
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 text-black p-0">
             <h1 class="fs-54">Seja bem vindo(a) a rede social e-nsino!</h1>
             <h5 class="fs-18"></h5>
           </div>
         </div>
-  
+
         <div class="row d-flex justify-content-center mt-3 mb-5">
           <div class="col-md-7">
             <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova postagem</button>
             <a class="btn btn-outline-dark" href="#postagens">Ver postagens</a>
           </div>
         </div>
-  
+
       </div>
-  
+
       <div class="col-md-6 d-flex justify-content-center">
         <img src="https://i.imgur.com/AIsXMAs.png" alt="Imagem de Inicio" width="500px" height="500px">
       </div>
@@ -50,17 +50,17 @@
         <nav>
           <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as postagens</a>
-      
+
             <a (click)='findByIdUsuario()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas postagens</a>
-      
+
             <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por tema</a>
           </div>
         </nav>
-      
+
         <!-- ?TODAS AS POSTAGENS -->
         <div class="tab-content mt-5" id="nav-tabContent">
           <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-            
+
             <!-- ?CARD POSTAGENS -->
           <div class="d-flex justify-content-center">
             <div class="col-md-9 d-flex flex-column align-items-center">
@@ -77,21 +77,21 @@
                   <small class="text-muted mb-1 mr-3">Nível: {{item.tema.nivel}}</small>
                   <small class="text-muted">Área: {{item.tema.area}}</small>
                   </div>
-                  
+
                   <p class="card-text mt-3">{{item.texto}}</p>
 
                   <div class="d-flex justify-content-between">
                   <p class="card-text"><small class="text-muted">
                     {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
                   </small></p>
-      
+
                   <p class="card-text"><small class="text-muted">
                     por: {{item.usuario.nome}}
                   </small></p>
                   </div>
 
 
-                  
+
 
 
                 </div>
@@ -99,9 +99,9 @@
             </div>
           </div>
             <!-- ?/CARD POSTAGENS -->
-      
+
           </div>
-      
+
           <!-- ?LISTA DE POSTAGEM POR USUARIO -->
           <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
@@ -110,7 +110,7 @@
 
                 <div class="card mb-3 w-100" *ngFor="let item of usuario.postagem">
                   <div class="card-body">
-                    
+
                     <h5 class="card-title m-0 mb-2 text-center">{{item.titulo}}</h5>
 
                     <hr class="mt-2 mb-2 w-75">
@@ -134,17 +134,17 @@
                       <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3">editar</a>
                       <a [routerLink]="['/postagem-delete', item.id]" class="text-danger">apagar</a>
                     </div>
-                    
-        
-        
+
+
+
                   </div>
                 </div>
               </div>
             </div>
-            
-      
+
+
           </div>
-      
+
             <!-- ?LISTA DE POSTAGEM POR TEMA -->
           <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
 
@@ -152,7 +152,7 @@
 
               <div class="col-md-9 d-flex flex-column align-items-center" >
                 <div class="row d-flex w-100" *ngFor="let tema of listaTemas">
-                  
+
                 <div class="card  mb-3 w-100" *ngFor="let item of tema.postagem">
 
                   <div class="card-body">
@@ -167,7 +167,7 @@
                     <p class="card-text"><small class="text-muted">
                       {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
                     </small></p>
-      
+
                     <p class="card-text"><small class="text-muted">
                       por: {{item.usuario.nome}}
                     </small></p>
@@ -206,13 +206,17 @@
 
         <div class="form-group">
           <label for="titulo">Titulo</label>
-          <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo" placeholder="digite o titulo da sua postagem">
+          <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo" placeholder="digite o titulo da sua postagem" (keyup)="validaTitulo()">
         </div>
+        <small id="vtitulo" class="fonteMontserrat"></small>
+
 
         <div class="form-group">
           <label for="texto">Texto</label>
-          <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" rows="3" placeholder="Digite um texto com no mínimo 10 caracteres"></textarea>
+          <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" rows="3" placeholder="Digite um texto com no mínimo 10 caracteres" (keyup)="validaTexto()"></textarea>
         </div>
+        <small id="vtexto" class="fonteMontserrat"></small>
+
 
         <div class="form-group">
           <label for="texto">Escolha um tema ou  <a routerLink="/tema"  data-dismiss="modal">cadastre um novo</a></label>

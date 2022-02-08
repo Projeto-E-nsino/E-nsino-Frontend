@@ -13,6 +13,7 @@ import { TemaService } from '../service/tema.service';
 export class TemaComponent implements OnInit {
 
 idTema: number
+descOK: boolean
 tema: Tema = new Tema()
 listaTemas: Tema[]
 
@@ -44,6 +45,7 @@ listaTemas: Tema[]
     })
   }
 
+
   cadastrar() {
     this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
     this.tema = resp
@@ -52,4 +54,22 @@ listaTemas: Tema[]
     this.tema = new Tema()
     })
   }
+
+  validaDescricao(){
+    if(this.tema.descricao.length < 3 || this.tema.descricao.length > 44 ){
+      let vdescricao = (<HTMLDivElement>document.getElementById('vdescricao'))
+      vdescricao.innerHTML = 'mínimo 3 caracteres, máximo 45'
+      vdescricao.style.color = "red"
+      this.descOK = false
+    } else {
+      let vdescricao = (<HTMLDivElement>document.getElementById('vdescricao'))
+      vdescricao.innerHTML = ''
+      vdescricao.style.backgroundColor = "transparent"
+      this.descOK = true
+    }
+  }
+
+
 }
+
+

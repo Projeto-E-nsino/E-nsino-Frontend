@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from 'src/app/model/Tema';
+import { User } from 'src/app/model/User';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -12,6 +13,7 @@ import { environment } from 'src/environments/environment.prod';
 export class TemaEditComponent implements OnInit {
 
   tema: Tema = new Tema()
+  usuario: User = new User()
 
   constructor(
     private temaService: TemaService,
@@ -20,10 +22,15 @@ export class TemaEditComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    if(environment.token == ''){
+    if(this.usuario.tipo != 'administrador'){
+      this.router.navigate(['/home'])
+      alert('apenas usuários administradores podem editar temas')
+      if(environment.token == ''){
       this.router.navigate(['/logar'])
+      alert('Sua sessão expirou! Faça login novamente')
     }
-
+    
+    }
     let id = this.route.snapshot.params['id']
     this.findByIdTema(id)
   }

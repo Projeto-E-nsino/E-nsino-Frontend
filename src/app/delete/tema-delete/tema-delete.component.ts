@@ -24,11 +24,14 @@ export class TemaDeleteComponent implements OnInit {
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
+   else if(environment.tipo != 'administrador'){
+        this.router.navigate(['/home'])
+        alert('apenas usuários administradores podem deletar temas')
+    }
     this.idTema = this.route.snapshot.params['id']
     this.findByIdTema(this.idTema)
   }
   findByIdTema(id: number) {
-
     this.temaService.getByIdTema(id).subscribe((resp: Tema) => {
       this.tema = resp
     })
